@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stammbaum der Familie Bechinie z Lažan</title>
+    <style>
+        :root {
+            --primary-color: #8B4513;
+            --secondary-color: #D2B48C;
+            --background-color: #FFF8E7;
+            --text-color: #333;
+            --highlight-color: #F5DEB3;
+            --border-color: #CD853F;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        
+        .subtitle {
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+        
+        nav {
+            background-color: var(--primary-color);
+            padding: 0.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        nav li {
+            margin: 0 0.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            display: block;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: var(--border-color);
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        section {
+            margin-bottom: 3rem;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            color: var(--primary-color);
+            margin-top: 1.5rem;
+        }
+        
+        .family-tree {
+            margin-left: 1.5rem;
+        }
+        
+        .family-tree ul {
+            list-style-type: none;
+            padding-left: 1.5rem;
+        }
+        
+        .family-tree li {
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+        
+        .family-tree li::before {
+            content: "•";
+            position: absolute;
+            left: -1rem;
+            color: var(--primary-color);
+        }
+        
+        .marriage {
+            margin-left: 0.5rem;
+            font-style: italic;
+        }
+        
+        .marriage::before {
+            content: "⚭";
+            margin-right: 0.5rem;
+        }
+        
+        .note-box {
+            background-color: var(--highlight-color);
+            padding: 1rem;
+            border-left: 4px solid var(--primary-color);
+            margin: 1rem 0;
+        }
+        
+        .warning-box {
+            background-color: #FFEBEE;
+            padding: 1rem;
+            border-left: 4px solid #B71C1C;
+            margin: 1rem 0;
+        }
+        
+        .info-box {
+            background-color: #E3F2FD;
+            padding: 1rem;
+            border-left: 4px solid #1565C0;
+            margin: 1rem 0;
+        }
+        
+        .abbreviation {
+            border-bottom: 1px dotted var(--primary-color);
+            cursor: help;
+            position: relative;
+        }
+        
+        .abbreviation:hover::after {
+            content: attr(data-title);
+            position: absolute;
+            bottom: 100%;
+            left: 0;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            z-index: 1;
+        }
+        
+        .glossary-term {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        th {
+            background-color: var(--secondary-color);
+        }
+        
+        tr:nth-child(even) {
+            background-color: var(--highlight-color);
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .original-chart {
+            max-width: 100%;
+            height: auto;
+            margin: 2rem 0;
+            border: 2px solid var(--border-color);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .chart-container {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .chart-caption {
+            font-style: italic;
+            margin-top: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav li {
+                margin: 0.25rem 0;
+            }
+            
+            main {
+                padding: 1rem;
+            }
+            
+            section {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Stammbaum der Familie Bechinie z Lažan</h1>
+        <p class="subtitle">Genealogische Zusammenhänge des böhmischen Adelsgeschlechts und seine Verbindungen zu europäischen Königshäusern</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#einleitung">Einleitung</a></li>
+            <li><a href="#katharina">Katharina von Krakovce</a></li>
+            <li><a href="#hauptlinie">Hauptlinie</a></li>
+            <li><a href="#wittelsbacher">Wittelsbacher</a></li>
+            <li><a href="#habsburger">Habsburger</a></li>
+            <li><a href="#premysliden">Přemysliden</a></li>
+            <li><a href="#englisches-koenigshaus">Englisches Königshaus</a></li>
+            <li><a href="#radetzky">Radetzky</a></li>
+            <li><a href="#weitere-verbindungen">Weitere Verbindungen</a></li>
+            <li><a href="#kritische-betrachtung">Kritische Betrachtung</a></li>
+            <li><a href="#glossar">Glossar</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <section id="einleitung">
+            <h2>Einleitung</h2>
+            
+            <div class="warning-box">
+                <strong>Wichtiger Hinweis:</strong> Diese Analyse basiert auf dem Stammbaum "BECHINIE Z LAŽAN GENEALOGICKÉ SOUVISLOSTI ŠLECHTICKÉHO RODU" und stellt die darin enthaltenen Verbindungen dar, ohne deren historische Richtigkeit zu bewerten. Es ist wichtig zu unterscheiden zwischen der Darstellung im Stammbaum und der historischen Realität. Die folgende strukturierte Darstellung gibt die im Stammbaum dargestellten Verbindungen wieder.
+            </div>
+            
+            <div class="chart-container">
+                <img src="compressed_images/stammbaum_compressed.jpg" alt="Originalstammbaum der Familie Bechinie z Lažan" class="original-chart">
+                <p class="chart-caption">Originalstammbaum "BECHINIE Z LAŽAN GENEALOGICKÉ SOUVISLOSTI ŠLECHTICKÉHO RODU"</p>
+            </div>
+            
+            <p>Der Stammbaum "BECHINIE Z LAŽAN GENEALOGICKÉ SOUVISLOSTI ŠLECHTICKÉHO RODU" zeigt die genealogischen Zusammenhänge des böhmischen Adelsgeschlechts Bechinie von Lažan und ihre Verbindungen zu bedeutenden europäischen Königshäusern. Diese strukturierte Darstellung fasst alle identifizierten Personen, Verzweigungen und Verbindungen zusammen.</p>
+            
+            <div class="info-box">
+                <strong>Originalquelle:</strong> Der Stammbaum, auf dem diese Analyse basiert, kann auf der Webseite <a href="https://historicka-slechta.cz" target="_blank">Historická šlechta</a> eingesehen werden. Diese Seite enthält weitere Informationen zur Burg Krakovec und den damit verbundenen Adelsgeschlechtern.
+            </div>
+            
+            <div class="note-box">
+                <p>Die zentrale Bedeutung dieses Stammbaums liegt in der Verbindung zum Haus Wittelsbach über Katharina von Krakovce, die Ehefrau des Stammvaters Jindřich Lefl z Lažan. Katharina war die Enkelin von Rudolf II. von Wittelsbach, was der Familie Bechinie z Lažan eine direkte Verbindung zu einem der mächtigsten Fürstenhäuser des Heiligen Römischen Reiches verschaffte.</p>
+            </div>
+            
+            <p>In dieser Darstellung werden verschiedene Arten von Verbindungen unterschieden:</p>
+            <ul>
+                <li><strong>Direkte Blutsverwandtschaft:</strong> Nachweisbare oder im Stammbaum behauptete direkte Abstammungslinien</li>
+                <li><strong>Eheliche Verbindungen:</strong> Heiraten zwischen Mitgliedern der Familie Bechinie und anderen Adelsfamilien</li>
+                <li><strong>Indirekte Verbindungen:</strong> Mehrschichtige Beziehungen über verschiedene Familien hinweg</li>
+                <li><strong>Historisch belegte Verbindungen:</strong> Durch Quellen gesicherte Beziehungen</li>
+                <li><strong>Spekulative Verbindungen:</strong> Im Stammbaum dargestellte, aber historisch nicht eindeutig belegte Beziehungen</li>
+            </ul>
+            
+            <p>Der unterschiedliche Detaillierungsgrad bei verschiedenen Familienzweigen im Stammbaum spiegelt vermutlich die unterschiedliche Quellenlage oder das besondere Interesse an bestimmten Linien wider. Dies wird in der folgenden Darstellung entsprechend kommentiert.</p>
+        </section>
+        
+        <section id="katharina">
+            <h2>Katharina von Krakovce und ihre Wittelsbacher-Abstammung</h2>
+            
+            <h3>Direkte Vorfahrenlinie von Katharina von Krakovce</h3>
+            
+            <div class="family-tree">
+                <ul>
+                    <li>Ludwig II. von Bayern (1229-1294, "der Strenge", Herzog von Bayern und Pfalzgraf bei Rhein)
+                        <ul>
+                            <li>Rudolf I. von der Pfalz (Sohn)
+                                <ul>
+                                    <li>Rudolf II. von der Pfalz (1306-1353, Sohn, Kurfürst und Pfalzgraf bei Rhein)
+                                        <ul>
+                                            <li>Jan von Krakovce (unehelicher Sohn)
+                                                <ul>
+                                                    <li>Katharina von Krakovce (Tochter)
+                                                        <span class="marriage">Jindřich Lefl z Lažan (Stammvater der Familie Bechinie z Lažan)</span>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+            <h3>Historischer Kontext von Jan von Krakovce</h3>
+            
+            <ul>
+                <li>Jan von Krakovce siedelte nach Böhmen über, noch vor dem Tod seiner Halbschwester Anna von der Pfalz (†1353), der zweiten Gemahlin Kaiser Karls IV.</li>
+                <li>1363: Jan (als "Fürst Jan Pfälzischer") erwarb das Gut Krakov mit Hilfe eines Darlehens von Kaiser Karl IV.</li>
+                <li>1364-1371: Bau der Burg Krakovec mit Unterstützung der königlichen Bauhütte</li>
+                <li>1375: Jan übergab die Burg an seine Söhne Jan, Hanek und Vilém, die sie als Lehen von König Wenzel IV. empfingen</li>
+                <li>Nach Jans Tod fiel die Burg als erledigtes Lehen an König Wenzel IV. zurück</li>
+            </ul>
+            
+            <h3>Bedeutung der Wittelsbacher-Verbindung</h3>
+            
+            <p>Durch die Abstammung von Rudolf II. von der Pfalz erhielt die Familie Bechinie z Lažan eine direkte Verbindung zu einem der mächtigsten Fürstenhäuser des Heiligen Römischen Reiches. Diese Verbindung wird im Stammbaum als Grundlage für die späteren Beziehungen zu anderen königlichen Häusern dargestellt, da die Wittelsbacher selbst durch Heiraten mit vielen europäischen Königshäusern verbunden waren.</p>
+            
+            <div class="info-box">
+                <strong>Hinweis zur Darstellung:</strong> Die uneheliche Abstammung des Jan von Krakovce von Rudolf II. wird im Stammbaum durch eine spezielle Kennzeichnung dargestellt. Diese genealogische Verbindung ist historisch nicht eindeutig belegt und sollte als eine im Stammbaum dargestellte Hypothese betrachtet werden.
+            </div>
+        </section>
+        
+        <section id="hauptlinie">
+            <h2>Hauptlinie der Familie Bechinie z Lažan</h2>
+            
+            <h3>Erste Generation</h3>
+            
+            <div class="family-tree">
+                <ul>
+                    <li>Jindřich Lefl z Lažan (Stammvater) <span class="marriage">Katharina von Krakovce</span>
+                        <ul>
+                            <li>Jan Bechinie z Lažan (ca. 1486-1543)</li>
+                            <li>Václav Bechinie z Lažan (ca. 1490-1552)</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+            <h3>Linie von Jan Bechinie z Lažan</h3>
+            
+            <div class="family-tree">
+                <ul>
+                    <li>Jan Bechinie z Lažan (ca. 1486-1543)
+                        <ul>
+                            <li>Zdeněk Bechinie z Lažan (ca. 1515-1578)
+                                <ul>
+                                    <li>Jan Jiří Bechinie z Lažan (ca. 1550-1620)
+                                        <ul>
+                                            <li>Zdeněk Bechinie z Lažan (ca. 1580-1645)
+                                                <ul>
+                                                    <li>Jan Karel Bechinie z Lažan (ca. 1640-1710)
+                                                        <ul>
+                                                            <li>František Antonín Bechinie z Lažan (ca. 1670-1740)
+                                                                <ul>
+                                                                    <li>Jan František Bechinie z Lažan (ca. 1700-1770)</li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>Mikuláš Bechinie z Lažan (ca. 1520-1590)</li>
+                                    <li>Karel Bechinie z Lažan (ca. 1585-1650)
+                                        <ul>
+                                            <li>Josef Bechinie z Lažan (ca. 1645-1715)
+                                                <ul>
+                                                    <li>Václav Josef Bechinie z Lažan (ca. 1675-1745)
+                                                        <ul>
+                                                            <li>Josef Karel Bechinie z Lažan (ca. 1705-1775)</li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+            <h3>Linie von Václav Bechinie z Lažan</h3>
+            
+            <div class="family-tree">
+                <ul>
+                    <li>Václav Bechinie z Lažan (ca. 1490-1552)
+                        <ul>
+                            <li>Jiří Bechinie z Lažan (ca. 1525-1595)
+                                <ul>
+                                    <li>Václav Bechinie z Lažan (ca. 1555-1625)
+                                        <ul>
+                                            <li>František Bechinie z Lažan (ca. 1610-1675)
+                                                <ul>
+                                                    <li>Jindřich Bechinie z Lažan (ca. 1615-1680)</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="info-box">
+                <strong>Hinweis zum Detaillierungsgrad:</strong> Die Hauptlinie der Familie Bechinie z Lažan ist im Stammbaum besonders detailliert dargestellt, während andere Zweige und Verbindungen teilweise weniger ausführlich dokumentiert sind. Dies könnte auf unterschiedliche Quellenlage oder besonderes Interesse an der Hauptlinie zurückzuführen sein.
+            </div>
+        </section>
+        
+        <section id="wittelsbacher">
+            <h2>Detaillierte Verbindungen zu den Wittelsbachern</h2>
+            
+            <h3>Direkte Verbindung über Katharina von Krakovce</h3>
+            
+            <div class="family-tree">
+                <ul>
+                    <li>Ludwig II. von Bayern (1229-1294, "der Strenge") <span class="marriage">Mathilda von Habsburg</span>
+                        <ul>
+                            <li>Rudolf I. von der Pfalz
+                                <ul>
+                                    <li>Rudolf II. von der Pfalz (1306-1353)
+                                        <ul>
+                                            <li>Jan von Krakovce (unehelicher Sohn) <span class="marriage">Amalia</span>
+                                                <ul>
+                                                    <li>Katharina von Krakovce <span class="marriage">Jindřich Lefl z Lažan</span></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+            <h3>Verbindung über Ludwig IV. von Bayern</h3>
+            
+            <div class="family-tree">
+                <ul>
+                    <li>Rudolf I. von der Pfalz
+                        <ul>
+                            <li>Ludwig IV. von Bayern (1282-1347, Bruder von Rudolf II., Herzog von Bayern und römisch-deutscher Kaiser)
+                                <ul>
+                                    <li>Albrecht von Bayern (1336-1404)
+                                        <ul>
+                                            <li>Johann von Bayern (1373-1425)
+                                                <ul>
+                                                    <li>Verbindungen zu späteren Generationen der Familie Bechinie z Lažan</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+            <h3>Weitere Wittelsbacher im Stammbaum</h3>
+            
+            <ul>
+                <li>Ruprecht von der Pfalz (1352-1410, Kurfürst von der Pfalz und römisch-deutscher König)</li>
+                <li>Ludwig VII. von Bayern-Ingolstadt (1368-1447)</li>
+                <li>Christoph III. von Bayern (1416-1448)</li>
+            </ul>
+            
+            <div class="note-box">
+                <p>Die Verbindungen zu den Wittelsbachern sind im Stammbaum besonders hervorgehoben und bilden die Grundlage für die weiteren Verbindungen zu anderen europäischen Herrscherhäusern. Die Wittelsbacher waren durch ihre Position als Herzöge von Bayern, Pfalzgrafen bei Rhein und zeitweise als römisch-deutsche Kaiser eine der einflussreichsten Dynastien im Heiligen Römischen Reich.</p>
+            </div>
+        </section>
+        
+        <section id="habsburger">
+            <h2>Verbindungen zu den Habsburgern</h2>
+            
+            <h3>Frühe Verbindung über Mathilda von Habsburg</h3>
+            
+            <div class="family-tree">
+                <ul>
+                    <li>Ludwig II. von Bayern <span class="marriage">Mathilda von Habsburg</span>
+                        <ul>
+                            <li>Diese Verbindung bestand bereits vor der Geburt von Katharina von Krakovce</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="note-box">
+                <p>Es ist ein gesicherter historischer Fakt, dass Mathilda von Habsburg (ca. 1251/53–1304) die Tochter von Rudolf von Habsburg (1218-1291), dem ersten Habsburger auf dem deutschen Thron (als Rudolf I.), war. Diese genealogische Beziehung ist historisch unbestritten und stellt eine direkte Verbindung zum Haus Habsburg dar, sofern die vorherigen Verbindungen in der dargestellten Linie korrekt sind.</p>
+            </div>
+            
+            <h3>Verbindungen nach der habsburgischen Übernahme Böhmens (1526)</h3>
+            
+            <ul>
+                <li>Ferdinand I. (1503-1564, römisch-deutscher Kaiser, König von Böhmen und Ungarn)
+                    <ul>
+                        <li>→Verbindung zu Václav Bechinie z Lažan (ca. 1555-1625) über den böhmischen Adel</li>
+                    </ul>
+                </li>
+                <li>Rudolf II. (1552-1612, römisch-deutscher Kaiser, König von Böhmen und Ungarn)
+                    <ul>
+                        <li>→Verbindung zu Jiří Bechinie z Lažan (ca. 1525-1595) durch Dienst am kaiserlichen Hof</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <h3>Spätere Verbindungen zu den Habsburgern</h3>
+            
+            <ul>
+                <li>František Antonín Bechinie z Lažan (ca. 1670-1740)
+                    <ul>
+                        <li>→Verbindung zu František Ferdinand Kinský (1678-1741)
+                            <ul>
+                                <li>Verbindung zu Maria Theresia (1717-1780)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>Josef Karel Bechinie z Lažan (ca. 1705-1775)
+                    <ul>
+                        <li>→Dienst unter Joseph II. (1741-1790) und Leopold II. (1747-1792)</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <div class="info-box">
+                <strong>Hinweis zur Art der Verbindungen:</strong> Die Verbindungen zu den Habsburgern nach 1526 basieren im Stammbaum hauptsächlich auf Dienstverhältnissen am Hof oder politischen Beziehungen, weniger auf direkten Verwandtschaftsverhältnissen. Der Begriff "Verbindung zu" bezeichnet hier also primär eine politische oder höfische Beziehung, nicht unbedingt eine genealogische.
+            </div>
+        </section>
+        
+        <section id="premysliden">
+            <h2>Verbindungen zu den Přemysliden</h2>
+            
+            <h3>Verbindung über Ludmilla Přemyslová</h3>
+            
+            <div class="family-tree">
+                <ul>
+                    <li>Ludwig von Bayern
+                        <ul>
+                            <li>Otto II. von Bayern
+                                <ul>
+                                    <li>Friedrich I.
+                                        <ul>
+                                            <li>Ludmilla Přemyslová
+                                                <ul>
+                                                    <li>Vladislav I./II.
+                                                        <ul>
+                                                            <li>Přemysl Ottokar I. (früherer böhmischer König)</li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+            <h3>Historische Verbindungen zu den Přemysliden</h3>
+            
+            <ul>
+                <li>Ottokar II. Přemysl (1233-1278, König von Böhmen)
+                    <ul>
+                        <li>Bořivoj von [Ort] (ca. 1230-1290, Hofbeamter unter Ottokar II.)
+                            <ul>
+                                <li>Verbindung zu frühen Vorfahren der Bechinie</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>Wenzel II. (1271-1305, König von Böhmen und Polen)
+                    <ul>
+                        <li>Zdislav von [Ort] (ca. 1253-1320)
+                            <ul>
+                                <li>Heirat mit Verwandten der Přemysliden</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <h3>Verbindungen über die Luxemburger</h3>
+            
+            <ul>
+                <li>Elisabeth von Böhmen (1292-1330, Tochter von Wenzel II.) <span class="marriage">Johann von Luxemburg (1296-1346, König von Böhmen)</span>
+                    <ul>
+                        <li>Karel IV. (Karl IV., 1316-1378, römisch-deutscher Kaiser und König von Böhmen)
+                            <ul>
+                                <li>Verbindung zu Vorfahren von Jindřich Lefl z Lažan</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <div class="info-box">
+                <strong>Hinweis zur Darstellung:</strong> Die Verbindungen zu den Přemysliden sind im Stammbaum weniger detailliert dargestellt als die zu den Wittelsbachern oder Habsburgern. Die Bezeichnungen "[Ort]" deuten auf Ortsnamen hin, die im Stammbaum ohne weitere Erläuterung erscheinen und möglicherweise auf lokale böhmische Adelsfamilien verweisen.
+            </div>
+        </section>
+        
+        <section id="englisches-koenigshaus">
+            <h2>Verbindungen zum englischen Königshaus</h2>
+            
+            <h3>Detaillierte Verbindung über die Hohenzollern und Hessen-Kassel</h3>
+            
+            <div class="family-tree">
+                <ul>
+                    <li>Rudolf I. von der Pfalz (Bruder von Ludwig IV. von Bayern)
+                        <ul>
+                            <li>Stefan II.
+                                <ul>
+                                    <li>Friedrich II.
+                                        <ul>
+                                            <li>Elisabeth Havel Joska <span class="marriage">Friedrich I. Hohenzollern</span>
+                                                <ul>
+                                                    <li>Albrecht III. Achilles Hohenzollern
+                                                        <ul>
+                                                            <li>Ursula Rani Bosca
+                                                                <ul>
+                                                                    <li>Heinrich I.
+                                                                        <ul>
+                                                                            <li>Albrecht Münster Valy
+                                                                                <ul>
+                                                                                    <li>Ursula Münster Belka
+                                                                                        <ul>
+                                                                                            <li>Václav Swirski <span class="abbreviation" data-title="Bedeutung im Stammbaum nicht erläutert">Z.R.</span>
+                                                                                                <ul>
+                                                                                                    <li>Johann <span class="abbreviation" data-title="Bedeutung im Stammbaum nicht erläutert">K.Z.R.</span>
+                                                                                                        <ul>
+                                                                                                            <li>Ferdinand Václav Sealy <span class="abbreviation" data-title="Bedeutung im Stammbaum nicht erläutert">Z.L.</span>
+                                                                                                                <ul>
+                                                                                                                    <li>Jaroslav Florian Przewalski <span class="abbreviation" data-title="Bedeutung im Stammbaum nicht erläutert">Z.R.</span>
+                                                                                                                        <ul>
+                                                                                                                            <li>Barbora Liska <span class="abbreviation" data-title="Bedeutung im Stammbaum nicht erläutert">K.Z.L.</span>
+                                                                                                                                <ul>
+                                                                                                                                    <li>Carolina Policen Z. Nassau <span class="marriage">Friedrich Fritten von Hessen-Kassel</span>
+                                                                                                                                        <ul>
+                                                                                                                                            <li>[Weitere Generationen]
+                                                                                                                                                <ul>
+                                                                                                                                                    <li>Heutiges englisches Königshaus</li>
+                                                                                                                                                </ul>
+                                                                                                                                            </li>
+                                                                                                                                        </ul>
+                                                                                                                                    </li>
+                                                                                                                                </ul>
+                                                                                                                            </li>
+                                                                                                                        </ul>
+                                                                                                                    </li>
+                                                                                                                </ul>
+                                                                                                            </li>
+                                                                                                        </ul>
+                                                                                                    </li>
+                                                                                                </ul>
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="info-box">
+                <strong>Hinweis zu Abkürzungen und Namen:</strong> Die Abkürzungen wie "Z.R.", "K.Z.R.", "Z.L." und "K.Z.L." erscheinen im Stammbaum ohne weitere Erklärung. Ebenso werden Namen wie "Havel Joska", "Rani Bosca", "Münster Valy" und "Münster Belka" ohne zusätzliche Erläuterungen verwendet. Diese könnten auf Titel, Herkunftsorte oder andere Identifikationsmerkmale hinweisen, die im Stammbaum nicht näher spezifiziert werden.
+            </div>
+            
+            <h3>Alternative Verbindung über Sachsen-Coburg und Gotha</h3>
+            
+            <ul>
+                <li>Jan František Bechinie z Lažan (ca. 1700-1770)
+                    <ul>
+                        <li>[Mehrere Generationen]
+                            <ul>
+                                <li>Maria von [böhmische Adelsfamilie] (1785-1840)
+                                    <ul>
+                                        <li>Friedrich von [deutsche Adelsfamilie] (1760-1830)
+                                            <ul>
+                                                <li>Albert von Sachsen-Coburg und Gotha (1819-1861) <span class="marriage">Victoria von Großbritannien (1819-1901)</span>
+                                                    <ul>
+                                                        <li>Edward VII. (1841-1910)
+                                                            <ul>
+                                                                <li>Georg V. (1865-1936)
+                                                                    <ul>
+                                                                        <li>Georg VI. (1895-1952)
+                                                                            <ul>
+                                                                                <li>Elizabeth II.
+                                                                                    <ul>
+                                                                                        <li>Charles III.</li>
+                                                                                    </ul>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <div class="warning-box">
+                <strong>Hinweis zum Detaillierungsgrad:</strong> Die Verbindung zum englischen Königshaus über die Hohenzollern und Hessen-Kassel ist im Stammbaum deutlich detaillierter dargestellt als die alternative Verbindung über Sachsen-Coburg und Gotha. Der unterschiedliche Detaillierungsgrad könnte auf verschiedene Quellen oder ein besonderes Interesse an der ersten Verbindungslinie hindeuten. Die Platzhalter "[böhmische Adelsfamilie]" und "[deutsche Adelsfamilie]" stehen für Namen, die im Stammbaum erscheinen, aber ohne weitere Erläuterung bleiben.
+            </div>
+        </section>
+        
+        <section id="radetzky">
+            <h2>Verbindung zu Feldmarschall Radetzky</h2>
+            
+            <div class="note-box">
+                <p>Im Gegensatz zu einigen anderen genealogischen Verbindungen im Stammbaum ist die Verbindung der Familie Bechinie z Lažan zu Feldmarschall Johann Joseph Wenzel Graf Radetzky von Radetz (1766-1858) historisch gut belegt.</p>
+            </div>
+            
+            <h3>Direkte Verbindung über Maria Venantia</h3>
+            
+            <ul>
+                <li>Ignaz Ladislaus Bechinie z Lažan (1691-1752)
+                    <ul>
+                        <li>Maria Venantia Baronesse Bechinie z Lažan (1738-1776) <span class="marriage">Peter Eusebius II. Graf Radetzky von Radetz (1732-1776)</span>
+                            <ul>
+                                <li>Johann Joseph Wenzel Graf Radetzky von Radetz (1766-1858), berühmter österreichischer Feldmarschall</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <p>Maria Venantia Baronesse Bechinie z Lažan entstammte der jüngeren Linie der Rozsochatec-Sparte der Familie Bechinie von Lažan. Ihre Ehe mit Peter Eusebius II. Graf Radetzky von Radetz im Jahr 1765 und die Geburt ihres Sohnes, des späteren Feldmarschalls, sind durch historische Quellen gut dokumentiert.</p>
+            
+            <p>Feldmarschall Radetzky wurde zu einer der bedeutendsten militärischen Persönlichkeiten des österreichischen Kaiserreichs im 19. Jahrhundert und ist heute vor allem durch den nach ihm benannten Radetzkymarsch von Johann Strauss bekannt.</p>
+        </section>
+        
+        <section id="weitere-verbindungen">
+            <h2>Weitere Verbindungen</h2>
+            
+            <h3>Verbindungen zu böhmischen Adelsfamilien</h3>
+            
+            <ul>
+                <li>Verbindungen zu den Familien Sternberg, Lobkowitz und Schwarzenberg durch Heiraten im 17. und 18. Jahrhundert</li>
+                <li>Politische Allianzen mit den Familien Waldstein und Kinsky während des Dreißigjährigen Krieges</li>
+                <li>Gemeinsame Grundbesitze mit den Familien Kolowrat und Czernin in Böhmen</li>
+            </ul>
+            
+            <h3>Verbindungen zu österreichischen Adelsfamilien</h3>
+            
+            <ul>
+                <li>Heiratsverbindungen mit den Familien Liechtenstein und Esterházy im 18. Jahrhundert</li>
+                <li>Militärische Zusammenarbeit mit der Familie Windisch-Graetz</li>
+                <li>Verwaltungsbeziehungen mit der Familie Metternich</li>
+            </ul>
+            
+            <div class="info-box">
+                <strong>Hinweis zum Detaillierungsgrad:</strong> Die weiteren Verbindungen sind im Stammbaum weniger detailliert dargestellt als die Hauptverbindungen zu den großen Herrscherhäusern. Sie werden oft nur durch einfache Linien oder kurze Notizen angedeutet, ohne die genauen genealogischen Zusammenhänge zu spezifizieren.
+            </div>
+        </section>
+        
+        <section id="kritische-betrachtung">
+            <h2>Kritische Betrachtung</h2>
+            
+            <p>Der Stammbaum "BECHINIE Z LAŽAN GENEALOGICKÉ SOUVISLOSTI ŠLECHTICKÉHO RODU" stellt zahlreiche Verbindungen der Familie Bechinie z Lažan zu bedeutenden europäischen Herrscherhäusern dar. Bei der Interpretation dieser Darstellung sind jedoch einige kritische Aspekte zu beachten:</p>
+            
+            <h3>Historische Belegbarkeit</h3>
+            
+            <ul>
+                <li><strong>Gut belegte Verbindungen:</strong> Die Verbindung zu Feldmarschall Radetzky ist durch historische Quellen gut dokumentiert und kann als gesichert gelten.</li>
+                <li><strong>Teilweise belegte Verbindungen:</strong> Die Verbindungen zu den Habsburgern nach 1526 basieren auf historisch nachvollziehbaren Dienstverhältnissen am Hof oder politischen Beziehungen.</li>
+                <li><strong>Spekulative Verbindungen:</strong> Die Abstammung des Jan von Krakovce von Rudolf II. von der Pfalz ist historisch nicht eindeutig belegt und sollte als Hypothese betrachtet werden.</li>
+                <li><strong>Komplexe Verbindungsketten:</strong> Die Verbindungen zum englischen Königshaus verlaufen über zahlreiche Zwischenglieder und sind in ihrer Gesamtheit schwer zu verifizieren.</li>
+            </ul>
+            
+            <h3>Unterschiedlicher Detaillierungsgrad</h3>
+            
+            <p>Der Stammbaum weist einen unterschiedlichen Detaillierungsgrad bei verschiedenen Familienzweigen auf:</p>
+            
+            <ul>
+                <li>Die Hauptlinie der Familie Bechinie z Lažan ist sehr detailliert dargestellt.</li>
+                <li>Die Verbindungen zu den Wittelsbachern und zum englischen Königshaus über die Hohenzollern sind ebenfalls ausführlich dokumentiert.</li>
+                <li>Die Verbindungen zu den Přemysliden und zu anderen böhmischen Adelsfamilien sind weniger detailliert dargestellt.</li>
+                <li>Bei einigen Verbindungen werden nur schematische Darstellungen ohne genaue genealogische Details verwendet.</li>
+            </ul>
+            
+            <h3>Methodische Anmerkungen</h3>
+            
+            <p>Bei der Interpretation des Stammbaums sollten folgende methodische Aspekte berücksichtigt werden:</p>
+            
+            <ul>
+                <li>Die Darstellung im Stammbaum gibt nicht notwendigerweise die historische Realität wieder, sondern eine bestimmte Interpretation genealogischer Zusammenhänge.</li>
+                <li>Die Quellenlage für verschiedene Zeiträume und Familienzweige ist unterschiedlich, was zu Lücken oder Ungenauigkeiten führen kann.</li>
+                <li>Die Darstellung von unehelichen Verbindungen oder entfernten Verwandtschaftsverhältnissen kann je nach Quelle und Interpretation variieren.</li>
+                <li>Die Bedeutung von Abkürzungen und speziellen Kennzeichnungen im Stammbaum ist nicht immer eindeutig und bedarf weiterer Erläuterung.</li>
+            </ul>
+            
+            <div class="warning-box">
+                <strong>Fazit:</strong> Der Stammbaum "BECHINIE Z LAŽAN GENEALOGICKÉ SOUVISLOSTI ŠLECHTICKÉHO RODU" stellt eine komplexe Darstellung genealogischer Zusammenhänge dar, die teilweise auf historischen Fakten, teilweise auf Hypothesen basiert. Für eine fundierte historische Bewertung wäre eine kritische Überprüfung anhand von Primärquellen notwendig.
+            </div>
+        </section>
+        
+        <section id="glossar">
+            <h2>Glossar</h2>
+            
+            <h3>Adelstitel und Bezeichnungen</h3>
+            
+            <table>
+                <tr>
+                    <th>Begriff</th>
+                    <th>Erklärung</th>
+                </tr>
+                <tr>
+                    <td>z Lažan</td>
+                    <td>Tschechischer Adelszusatz "von Lažan", bezeichnet die Herkunft oder den Besitz</td>
+                </tr>
+                <tr>
+                    <td>Kurfürst</td>
+                    <td>Einer der sieben (später neun) Fürsten des Heiligen Römischen Reiches, die das Recht hatten, den römisch-deutschen König zu wählen</td>
+                </tr>
+                <tr>
+                    <td>Pfalzgraf</td>
+                    <td>Ursprünglich ein königlicher Amtsträger, später ein erblicher Fürstentitel</td>
+                </tr>
+                <tr>
+                    <td>Baronesse</td>
+                    <td>Weibliche Form des Titels "Baron", ein niederer Adelstitel</td>
+                </tr>
+                <tr>
+                    <td>Graf/Gräfin</td>
+                    <td>Adelstitel zwischen Herzog und Baron/Freiherr</td>
+                </tr>
+            </table>
+            
+            <h3>Abkürzungen im Stammbaum</h3>
+            
+            <table>
+                <tr>
+                    <th>Abkürzung</th>
+                    <th>Mögliche Bedeutung</th>
+                </tr>
+                <tr>
+                    <td>Z.R.</td>
+                    <td>Im Stammbaum ohne Erklärung verwendet, könnte auf einen Titel oder eine regionale Zugehörigkeit hinweisen</td>
+                </tr>
+                <tr>
+                    <td>K.Z.R.</td>
+                    <td>Im Stammbaum ohne Erklärung verwendet, könnte eine Variation oder Erweiterung von Z.R. sein</td>
+                </tr>
+                <tr>
+                    <td>Z.L.</td>
+                    <td>Im Stammbaum ohne Erklärung verwendet, könnte auf "z Lažan" oder eine andere Ortsbezeichnung hinweisen</td>
+                </tr>
+                <tr>
+                    <td>K.Z.L.</td>
+                    <td>Im Stammbaum ohne Erklärung verwendet, könnte eine Variation oder Erweiterung von Z.L. sein</td>
+                </tr>
+                <tr>
+                    <td>ca.</td>
+                    <td>Circa, ungefähr (bei Jahreszahlen)</td>
+                </tr>
+            </table>
+            
+            <h3>Historische Begriffe</h3>
+            
+            <table>
+                <tr>
+                    <th>Begriff</th>
+                    <th>Erklärung</th>
+                </tr>
+                <tr>
+                    <td>Heiliges Römisches Reich</td>
+                    <td>Staatsverband in Mitteleuropa vom Mittelalter bis 1806, umfasste große Teile des heutigen Deutschlands, Österreichs, Tschechiens und angrenzender Gebiete</td>
+                </tr>
+                <tr>
+                    <td>Böhmischer Adel</td>
+                    <td>Adelsstand im Königreich Böhmen, heute Teil der Tschechischen Republik</td>
+                </tr>
+                <tr>
+                    <td>Kaiserlicher Hof</td>
+                    <td>Residenz und Verwaltungszentrum des Kaisers, insbesondere der Habsburger in Wien</td>
+                </tr>
+                <tr>
+                    <td>Lehen</td>
+                    <td>Vom Lehnsherrn (z.B. König) an einen Vasallen verliehenes Gut oder Recht</td>
+                </tr>
+                <tr>
+                    <td>Königliche Bauhütte</td>
+                    <td>Organisation von Baumeistern und Handwerkern im Dienst des Königs</td>
+                </tr>
+            </table>
+            
+            <h3>Dynastien und Herrscherhäuser</h3>
+            
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Beschreibung</th>
+                </tr>
+                <tr>
+                    <td>Wittelsbacher</td>
+                    <td>Deutsches Adelsgeschlecht, das von 1180 bis 1918 in Bayern herrschte und zeitweise auch die Pfalzgrafschaft bei Rhein regierte</td>
+                </tr>
+                <tr>
+                    <td>Habsburger</td>
+                    <td>Europäisches Herrschergeschlecht, das von 1273 bis 1918 die römisch-deutschen Kaiser und von 1526 bis 1918 die Könige von Böhmen und Ungarn stellte</td>
+                </tr>
+                <tr>
+                    <td>Přemysliden</td>
+                    <td>Böhmisches Herrschergeschlecht, das von etwa 870 bis 1306 regierte</td>
+                </tr>
+                <tr>
+                    <td>Luxemburger</td>
+                    <td>Europäisches Herrschergeschlecht, das von 1308 bis 1437 die böhmische Krone innehatte und mehrere römisch-deutsche Kaiser stellte</td>
+                </tr>
+                <tr>
+                    <td>Hohenzollern</td>
+                    <td>Deutsches Adelsgeschlecht, das in Brandenburg-Preußen regierte und von 1871 bis 1918 die deutschen Kaiser stellte</td>
+                </tr>
+                <tr>
+                    <td>Sachsen-Coburg und Gotha</td>
+                    <td>Deutsches Adelsgeschlecht, das durch Heiraten mit vielen europäischen Königshäusern verbunden war und die britische Königsfamilie bis 1917 stellte</td>
+                </tr>
+            </table>
+        </section>
+    </main>
+    
+    <footer>
+        <p>© 2025 - Stammbaum der Familie Bechinie z Lažan - Genealogische Analyse</p>
+    </footer>
+</body>
+</html>
